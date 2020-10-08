@@ -1,14 +1,31 @@
 package coursebooking.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "customers")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
+
+    @Column
     private String town;
+
+    @Column
     private Integer age;
+
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
     public Customer(String name, String town, Integer age) {
