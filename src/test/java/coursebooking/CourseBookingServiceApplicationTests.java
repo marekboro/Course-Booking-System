@@ -1,5 +1,6 @@
 package coursebooking;
 
+import coursebooking.models.Booking;
 import coursebooking.models.Course;
 import coursebooking.models.Customer;
 import coursebooking.repositories.BookingRepository;
@@ -41,6 +42,12 @@ class CourseBookingServiceApplicationTests {
 	public void hasCourses(){
 		List<Course> found = courseRepository.findAll();
 		assertEquals(6,found.size());
+	}
+
+	@Test
+	public void hasBookings(){
+		List<Booking> found = bookingRepository.findAll();
+		assertEquals(21,found.size());
 	}
 
 }
