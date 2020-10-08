@@ -82,7 +82,7 @@ class CourseBookingServiceApplicationTests {
 
 	@Test
 	public void canFindCustomersOverAgeFromTownByCourseId(){
-		List<Customer> found = customerRepository.findByGreaterThanAgeAndTownAndBookingsCourseId(23,"Edinburgh",1L);
+		List<Customer> found = customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseId(23,"Edinburgh",1L);
 		assertEquals(1,found.size());
 	}
 

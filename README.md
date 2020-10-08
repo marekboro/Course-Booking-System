@@ -30,40 +30,30 @@ Write queries using the derived methods. Connect these to suitable RESTful endpo
 
 - [x] Get all courses with a given rating
 - [x] Get all customers for a given course
-- [ ] Get all courses for a given customer
-- [ ] Get all bookings for a given date
-- [ ] Get all customers in a given town for a given course
-- [ ] Get all customers over a certain age in a given town for a given course
-- [ ] test these queries.
+- [x] Get all courses for a given customer
+- [x] Get all bookings for a given date
+- [x] Get all customers in a given town for a given course
+- [x] Get all customers over a certain age in a given town for a given course
+- [x] test these queries.
 
-Other Extensions
-Correctly handle case-insensitive routes with Spring RestController or the IgnoreCase in derived queries.
-Tips / Reminders
-Stick to the RESTful routes for each resource:
+- [ ]  Correctly handle case-insensitive routes with Spring RestController or the IgnoreCase in derived queries.
 
-GET /resources
-GET /resources/{id}
-GET /resources?property=value
-POST /resources
-PUT /resources/{id}
-DELETE /resources/{id}
-You're allowd to create routes outside of this structure, but you need to be able to justify the design decision. We of course reccomend you stick with this RESTful way of doing things.
+- [x] GET /resources
+- [x] GET /resources/{id}
+- [x] GET /resources?property=value
+- [x] POST /resources
+- [x] PUT /resources/{id}
+- [x] DELETE /resources/{id}
 
-Clearly understand the relationships before coding. Draw it out.
+- [x] Clearly understand the relationships before coding. Draw it out.
+- [ ] Be careful with town property - consider how to handle caps.
 
-Be careful with town property - consider how to handle caps.
+- [x] Write tests for your queries.
 
-Write tests for your queries.
+- [x] Use a ddl-auto setting of create-drop when doing development. This means every time the app starts, the schema is created, and when the app stops the schema is destroyed.
+- [x] Provide a data loader to seed some initial seed data
 
-Use a ddl-auto setting of create-drop when doing development. This means every time the app starts, the schema is created, and when the app stops the schema is destroyed.
-
-Provide a data loader to seed some initial seed data
-
-Reminder on which dependencies to use with spring Initialiser:
-
-Web
-JPA
-H2
-DevTools
+##### Dependencies to use with spring Initialiser:
+Web, JPA, H2, DevTools
 
 ![image](planning.png)
