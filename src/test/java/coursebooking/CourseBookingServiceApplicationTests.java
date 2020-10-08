@@ -56,5 +56,24 @@ class CourseBookingServiceApplicationTests {
 		assertEquals(3,found.size());
 	}
 
+	@Test
+	public void canFindCustomersByCourse(){
+		List<Customer> found = customerRepository.findByBookingsCourseId(2L);
+		assertEquals(1,found.size());
+	}
+
+	@Test
+	public void canFindCoursesOfCustomer(){
+		List<Course> found = courseRepository.findByBookingsCustomerId(1L);
+		assertEquals(4,found.size());
+	}
+
+	@Test
+	public void canFindBookingsFromDate(){
+		List<Booking> found = bookingRepository.findByDate("13/07/20");
+		assertEquals(2,found.size());
+	}
+
+
 
 }

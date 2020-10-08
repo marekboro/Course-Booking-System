@@ -20,9 +20,17 @@ public class CourseController {
     CourseRepository courseRepository;
 
     @GetMapping(value = "/courses")
-    public ResponseEntity<List<Course>> getAllCourses() {
+    public ResponseEntity<List<Course>> getAllCourses(
+            @RequestParam(name = "forCustomer",required = false)Long id
+    ) {
+        if (id !=null){
+            return new ResponseEntity<>(courseRepository.findByBookingsCustomerId(id), HttpStatus.OK);
+        }
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }
+
+
+
 
     @GetMapping(value = "/courses/rating/{rating}")
     public ResponseEntity<List<Course>> getAllCoursesWithRating(@PathVariable Integer rating) {
