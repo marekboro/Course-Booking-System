@@ -1,44 +1,40 @@
-ntro
-For this lab, we will build a simple course booking back-end. At the end of the lab we should have a RESTful API that allows connected clients to create course bookings and find useful information about the bookings created.
+# Build a simple course booking back-end: 
+- Have a RESTful API that allows connected clients to create course bookings and find useful information about the bookings created.
+- The API built from scratch with Spring using Spring Boot Initialiser.
 
-The API should be built from scratch with Spring using Spring Boot Initialiser.
-
-MVP
-Models
+# MVP
+##Models
 The course reservations API needs to be built with three models with the following properties:
+- Course
+- [x] name - the name of the course eg: Intro to Python
+- [x] town - the town/city/village where the course is located. We will not bother with full address yet.
+- [x] star rating - Out of 5, each course has a rating
 
-Course
+- Booking
+- [x] date - a string in the form "dd-mm-yy" for the booking date. Dates can be in the future or in the past
 
-name - the name of the course eg: Intro to Python
-town - the town/city/village where the course is located. We will not bother with full address yet.
-star rating - Out of 5, each course has a rating
-Booking
+- Customer
+- [x] name - string containing customer's name
+- [x] town - a string containing the town where the customer lives. We will not record an address at this stage
+- [x] age - the customers age. Useful for marketing purposes
 
-date - a string in the form "dd-mm-yy" for the booking date. Dates can be in the future or in the past
-Customer
+### The relationships should be:
 
-name - string containing customer's name
-town - a string containing the town where the customer lives. We will not record an address at this stage
-age - the customers age. Useful for marketing purposes
-The relationships should be:
+- [x] A Course has many Bookings
+- [x] A Booking has a Course
+- [x] A Customer has many bookings
+- [x] A booking has a customer
 
-A Course has many Bookings
-A Booking has a Course
-A Customer has many bookings
-A booking has a customer
-Queries + Custom Routes
-Write queries using the derived method we've shown. Connect these to suitable RESTful endpoints and decide whether you should use a filter or not for all of:
+#### Queries + Custom Routes
+Write queries using the derived methods. Connect these to suitable RESTful endpoints and decide whether you should use a filter or not for all of:
 
-Get all courses with a given rating
-Get all customers for a given course
-Get all courses for a given customer
-Get all bookings for a given date
-Extensions
-### Extension Queries + Routes
-
-Get all customers in a given town for a given course
-Get all customers over a certain age in a given town for a given course
-You need to write and test these queries.
+- [ ] Get all courses with a given rating
+- [ ] Get all customers for a given course
+- [ ] Get all courses for a given customer
+- [ ] Get all bookings for a given date
+- [ ] Get all customers in a given town for a given course
+- [ ] Get all customers over a certain age in a given town for a given course
+- [ ] test these queries.
 
 Other Extensions
 Correctly handle case-insensitive routes with Spring RestController or the IgnoreCase in derived queries.
