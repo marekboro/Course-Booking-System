@@ -19,9 +19,15 @@ public class CustomerController {
 
 
     @GetMapping(value = "/customers")
-    public ResponseEntity<List<Customer>> getAllCustomers() {
+    public ResponseEntity<List<Customer>> getAllCustomers(
+            @RequestParam(name = "takingCourse",required = false)Long id) {
+        if (id !=null) {
+            return new ResponseEntity<>(customerRepository.findByBookingsCourseId(id),HttpStatus.OK);
+        }
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
+
+
 
     @GetMapping(value = "/customers/{id}")
     public ResponseEntity getCustomer(@PathVariable Long id) {

@@ -28,8 +28,8 @@ The course reservations API needs to be built with three models with the followi
 #### Queries + Custom Routes
 Write queries using the derived methods. Connect these to suitable RESTful endpoints and decide whether you should use a filter or not for all of:
 
-- [ ] Get all courses with a given rating
-- [ ] Get all customers for a given course
+- [x] Get all courses with a given rating
+- [x] Get all customers for a given course
 - [ ] Get all courses for a given customer
 - [ ] Get all bookings for a given date
 - [ ] Get all customers in a given town for a given course

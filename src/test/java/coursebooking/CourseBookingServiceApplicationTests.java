@@ -50,4 +50,11 @@ class CourseBookingServiceApplicationTests {
 		assertEquals(21,found.size());
 	}
 
+	@Test
+	public void canFilterCoursesByRating(){
+		List<Course> found = courseRepository.findCoursesByStarRating(5);
+		assertEquals(3,found.size());
+	}
+
+
 }

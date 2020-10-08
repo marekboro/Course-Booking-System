@@ -24,6 +24,13 @@ public class CourseController {
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/courses/rating/{rating}")
+    public ResponseEntity<List<Course>> getAllCoursesWithRating(@PathVariable Integer rating) {
+        return new ResponseEntity<>(courseRepository.findCoursesByStarRating(rating), HttpStatus.OK);
+    }
+
+
+
     @GetMapping(value = "/courses/{id}")
     public ResponseEntity getCourse(@PathVariable Long id) {
         return new ResponseEntity<>(courseRepository.findById(id), HttpStatus.OK);
