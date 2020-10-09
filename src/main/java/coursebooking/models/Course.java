@@ -23,7 +23,7 @@ public class Course {
     private Integer starRating;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "course",cascade = CascadeType.REMOVE) // should remove all bookings of this course if this course is removed.
     private List<Booking> bookings;
 
     public Course(String name, String town, Integer starRating) {
@@ -58,7 +58,7 @@ public class Course {
 
     public void setTown(String town) {
         this.town = town;
-    }
+    }  // could add .toLowerCase() to prevent issues with casing when accessing routes and using requests params.
 
     public Integer getStarRating() {
         return starRating;

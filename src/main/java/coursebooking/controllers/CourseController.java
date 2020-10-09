@@ -53,8 +53,9 @@ public class CourseController {
     @PutMapping(value = "/courses/{id}")
     public ResponseEntity<Object> updateCourse(@RequestBody Course course, @PathVariable Long id) {
         Optional<Course> courseOptional = courseRepository.findById(id);
-        if (!courseOptional.isPresent())
-            return new ResponseEntity<>(course, HttpStatus.NOT_FOUND);
+        if (!courseOptional.isPresent()){
+            return new ResponseEntity<>(course, HttpStatus.NOT_FOUND);}
+        course.setBookings(courseOptional.get().getBookings());  // NEW - to ensure bookings are also added back.
         course.setId(id);
         courseRepository.save(course);
         return new ResponseEntity<>(course, HttpStatus.OK);

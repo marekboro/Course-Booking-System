@@ -25,7 +25,7 @@ public class Customer {
 
 
     @JsonBackReference
-    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.REMOVE) // Cascade should remove all bookings for this customer
     private List<Booking> bookings;
 
     public Customer(String name, String town, Integer age) {
